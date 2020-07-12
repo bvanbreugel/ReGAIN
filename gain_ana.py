@@ -31,7 +31,7 @@ def init_arg():
         help='column name with target values, this column will '
         'be excluded from analysis')
     parser.add_argument("--description", default='-')
-    parser.add_argument("--append_file", default='None')
+    parser.add_argument("--append_file", default='None', help='Output rmse to file')
     return parser.parse_args()
 
 
@@ -153,7 +153,7 @@ if __name__ == '__main__':
     result_ana_diff = df_ana_diff(df_ref, df_imputed)
     result_d['ana_diff'] = result_ana_diff
     print(result_d['rmse'])
-    if append_file!='None':
+    if append_file!='None': #saves output to file. 
         with open(append_file, "a") as myfile:
             myfile.write(str(result_d['rmse'])+',')
     with open(fn_json, "w") as fp:

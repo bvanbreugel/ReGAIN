@@ -43,10 +43,10 @@ def init_arg():
         '--istarget', help='include target if not zero',
         default=0, type=int)
     parser.add_argument(
-        '--uniform_miss', help='uniform missing vs non-uniform',
+        '--uniform_miss', help='uniform missing vs non-uniform. Set 1 for uniform, set 0 for Type II (see project), set 2 for Type III. Set 4 for generating line-missing data in mnist. Use option 3 for manually setting the amount of correlation.',
         default=1, type=int)
     parser.add_argument(
-        '--miss_corr', help='correlation of missing masks',
+        '--miss_corr', help='correlation of missing masks. Only used when uniform_miss=3',
         default=0.0, type=float)
 
     return parser.parse_args()
